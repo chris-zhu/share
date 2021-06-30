@@ -11,5 +11,9 @@
     "@slidev/theme-seriph": "*",
     "slidev-theme-light-icons": "^1.0.2"
   },
-  "name": "test"
+  "name": "test",
+  "devDependencies": {
+    "naive-ui": "^2.15.0",
+    "sass": "^1.35.1"
+  }
 }

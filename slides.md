@@ -1,6 +1,10 @@
 ---
 theme: light-icons
-image: https://source.unsplash.com/collection/94734566/1920x1080
+# layout: intro
+layout: image-header-intro
+imageHeader: '../assets/images/light-icon-logo.svg'
+imageRight: '../assets/images/light-icons-landing.svg'
+image: 'https://source.unsplash.com/collection/94734566/1920x1080'
 class: text-center
 highlighter: shiki
 title: Welcome to the sharing session of Chris
@@ -8,7 +12,7 @@ title: Welcome to the sharing session of Chris
 
 # 拥抱
 
-Presentation slides for developers
+探索前端新的开发体验改善
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 p-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -16,10 +20,10 @@ Presentation slides for developers
   </span>
 </div>
 
-<a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
+<!-- <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
   class="abs-br m-6 text-xl icon-btn opacity-50 !border-none !hover:text-white">
   <carbon-logo-github />
-</a>
+</a> -- >
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)asd
@@ -27,31 +31,49 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 
-# 数据量对比
+## 一些数据
 
-<p class="asd">Slidev is a slides maker and presenter designed for developers, consist of the following features</p>
+<div class="body" @click="$slidev.nav.next">
+  <div class="left">
+    <p><span class="data">1.58M</span> 周活跃用户（devtools插件统计）</p>
+    <p><span class="data">9.4M</span> npm 月下载</p>
+  </div>
+  <div class="right" v-click>
+    <p>去年同期对比</p>
+    <p>Devtools <span class="data">1.1M -> 1.58M (</span> <span class="numAdd">+43.6%</span> <span>)</span></p>
+    <p>NPM <span class="data">6.2M -> 9.4M (</span> <span class="numAdd">+51.6%</span> <span>)</span></p>
+  </div>
+</div>
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+<style>
+.body{
+  width:80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+}
+.data{
+  color: #46954A;
+}
+.numAdd{
+  color: #E2B27D;
+}
+</style>
 
-<br>
-<br>
+---
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+# devtools 插件
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+<div @click="$slidev.nav.next">
+  <img src="/devtools001.png"/>
+</div>
 
-<!-- 
-  thiasdasfjajsfklasjfjal
- -->
+<p style="text-align:center">devtools 更好的性能表现</p>
 
 <style>
 h1 {
@@ -67,32 +89,186 @@ h1 {
 
 ---
 
+# Vue3 生态
+
+<div class="body">
+  <!-- vue3 -->
+  <div @click="$slidev.nav.next" class="item vue3">
+    <img style="width:100px;height:100px;" src="/logo.svg" />
+    <span>Vue3</span>
+  </div>
+  <!-- vite -->
+  <div class="item vite" v-click="1">
+    <img style="width:100px;height:100px;" src="/vite.svg" />
+    <span>Vite@v2</span>
+  </div>
+  <!-- vue-router@V4 -->
+  <div class="item router" v-click="2">
+    <img style="width:100px;height:100px;" src="/logo.svg" />
+    <span>Vue-Router@v4</span>
+  </div>
+  <!-- vuex@V4 -->
+  <div class="item vuex" v-click="3">
+    <img style="width:100px;height:100px;" src="/logo.svg" />
+    <span>Vuex@v4</span>
+  </div>
+  <!-- Typescript -->
+  <div class="item js2ts" v-click="4">
+    <img style="height:100px;" src="/js2ts.png" />
+    <span>Typescript</span>
+  </div>
+  <!-- UI库 -->
+  <div class="item ui" v-click="5">
+    <ul>
+      <li>
+        <img style="width:30px;height:30px;" src="/vant.png" />
+        <span>Vant@V3</span>
+      </li>
+      <li>
+        <img style="width:30px;height:30px;" src="/antd.svg" />
+        <span>Antd Vue@v2</span>
+      </li>
+      <li>
+        <img style="height:30px;" src="/elementplus.svg" />
+      </li>
+      <li>
+        <img style="width:30px;height:30px;" src="/naive.svg" />
+        <span>Naive</span>
+      </li>
+    </ul>
+  </div>
+  <!-- utils VueUse -->
+  <div class="item vueuse" v-click="6">
+    <img style="width:100px;height:100px;" src="/vueuse.svg" />
+    <span>VueUse</span>
+  </div>
+  <!-- Volar -->
+  <div class="item volar" v-click="7">
+    <img style="width:100px;height:100px;" src="/logo.svg" />
+    <span>Volar</span>
+  </div>
+</div>
+
+<style>
+.body{
+  width:80%;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+}
+.item{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+ul{
+  list-style: none;
+}
+li{
+  margin-top:10px;
+  display: flex;
+}
+li span{
+  margin-left: 6px;
+}
+.vite, .router, .vuex, .ui, .volar, .vueuse, .js2ts{
+  position: absolute;
+}
+.vite{
+  top: 28px;
+  left: 177px;
+}
+.router{
+  top: 153px;
+  left: 40px;
+}
+.vuex{
+  top: 312px;
+  left: 143px;
+}
+.vueuse{
+  top: 364px;
+  left: 337px;
+}
+.ui{
+  top: 309px;
+  left: 555px;
+}
+.js2ts{
+  top: 13px;
+  left: 393px;
+}
+.volar{
+  top: 94px;
+  left: 616px;
+}
+
+
+</style>
+
+---
+
+# Vite
+
+<vite />
+
+---
+
+<!-- <volar /> -->
+
+# Type First 类型优先
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+- 类型提示
+- 智能补全
+- 省下写文档的时间
+- 方便重构
+
+</div>
+<div>
+  示例代码
+
+
+
+</div>
+</div>
+
+
+
+---
+
 # Navigation
 
 Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
 
 ### Keyboard Shortcuts
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+|                                     |                             |
+| ----------------------------------- | --------------------------- |
+| <kbd>right</kbd> / <kbd>space</kbd> | next animation or slide     |
+| <kbd>left</kbd>                     | previous animation or slide |
+| <kbd>up</kbd>                       | previous slide              |
+| <kbd>down</kbd>                     | next slide                  |
 
 <!-- https://sli.dev/guide/animations.html#click-animations -->
+
 <img
   v-click
   class="absolute -bottom-9 -left-7 w-80 opacity-50"
   src="https://sli.dev/assets/arrow-bottom-left.svg"
 />
+
 <p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 <h1>123</h1>
 
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
 ---
 
 # Code
@@ -111,7 +287,7 @@ interface User {
 
 function updateUser(id: number, update: User) {
   const user = getUser(id)
-  const newUser = {...user, ...update}  
+  const newUser = { ...user, ...update }
   saveUser(id, newUser)
 }
 ```
@@ -123,7 +299,7 @@ function updateUser(id: number, update: User) {
 # Components
 
 <div grid="~ cols-2 gap-4">
-<div>
+  <div>
 
 You can use Vue components directly inside your slides.
 
@@ -133,27 +309,26 @@ We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that
 <Counter :count="10" />
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+  <!-- ./components/Counter.vue -->
+  <Counter :count="10" m="t-4" />
 
 Check out [the guides](https://sli.dev/builtin/components.html) for more.
 
-</div>
-<div>
+  </div>
+  <div>
 
 ```html
 <Tweet id="1390115482657726468" />
 ```
 
-<Tweet id="1390115482657726468" scale="0.65" />
+  <Tweet id="1390115482657726468" scale="0.65" />
 
+  </div>
 </div>
-</div>
-
 
 ---
-class: px-20
----
+
+## class: px-20
 
 # Themes
 
@@ -183,20 +358,15 @@ Read more about [How to use a theme](https://sli.dev/themes/use.html) and
 check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
 
 ---
-preload: false
----
+
+## preload: false
 
 # Animations
 
 Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
 
 ```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
+<div v-motion :initial="{ x: -80 }" :enter="{ x: 0 }">Slidev</div>
 ```
 
 <div class="w-60 relative mt-6">
@@ -269,6 +439,7 @@ LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
 Inline $\sqrt{3x-1}+(1+x)^2$
 
 Block
+
 $$
 \begin{array}{c}
 
@@ -311,10 +482,11 @@ C -->|Two| E[Result 2]
 
 [Learn More](https://sli.dev/guide/syntax.html#diagrams)
 
-
 ---
+
 layout: center
 class: text-center
+
 ---
 
 # Learn More
