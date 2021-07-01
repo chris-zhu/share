@@ -18,3 +18,20 @@ import { NUl, NLi, NA } from 'naive-ui'
 </script>
 <style lang='scss' scoped>
 </style>
+
+<template>
+  <div></div>
+</template>
+
+<script lang='ts'>
+import { ref, reactive } from 'vue'
+export default {
+  name: '',
+  components: {},
+  setup () {
+    return {}
+  }
+}
+</script>
+<style lang='scss' scoped>
+</style>

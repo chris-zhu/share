@@ -2,14 +2,28 @@
   <div class="body">
     <div class="left">
       <div class="vite">
-        <img @click="num += 1" src="/vite.svg" alt />
+        <img @click="num++" src="/vite.svg" alt="vite"/>
         <p>
-          learn more at
+          <span @click="num--">learn more at</span> 
           <n-a href="https://cn.vitejs.dev/" target="_blank">https://cn.vitejs.dev</n-a>
         </p>
       </div>
     </div>
     <div class="right">
+      <div v-if="showPics">
+        <n-image-group>
+          <n-space>
+            <n-image
+              width="500"
+              src="/viteWebpack001.png"
+            />
+            <n-image
+              width="500"
+              src="/viteWebpack002.png"
+            />
+          </n-space>
+        </n-image-group>
+      </div>
       <n-ul align-text>
         <n-li v-if="num >= 1">类似vue-cli的熟悉体验</n-li>
         <n-li v-if="num >= 2">基于原生ESM的极速热更新</n-li>
@@ -23,9 +37,12 @@
 </template>
 
 <script lang='ts' setup>
-import { ref } from 'vue'
-import {NUl, NLi, NA} from 'naive-ui'
+import { ref,computed } from 'vue'
+import {NUl, NLi, NA, NImage, NImageGroup, NSpace} from 'naive-ui'
 const num = ref(0)
+const showPics = computed(() => {
+  return num.value <= 0
+})
 </script>
 
 <style lang="scss" scoped>

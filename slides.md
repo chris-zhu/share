@@ -1,11 +1,9 @@
 ---
 theme: light-icons
-# layout: intro
 layout: image-header-intro
 imageHeader: '../assets/images/light-icon-logo.svg'
 imageRight: '../assets/images/light-icons-landing.svg'
 image: 'https://source.unsplash.com/collection/94734566/1920x1080'
-class: text-center
 highlighter: shiki
 title: Welcome to the sharing session of Chris
 ---
@@ -241,7 +239,69 @@ li span{
 </div>
 </div>
 
+---
+layout: left-image
+image: '../assets/images/light-vue-landing.svg'
+equal: true
+---
 
+# Composition Api 组合式Api
+
+什么是组合式Api? 在vue3中引入的一种新的编写Vue组件的方式。
+
+<div grid="~ cols-2 gap-4">
+<div style="border: 1px solid #eee;">
+
+```ts {2-3|5|all}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+```
+
+</div>
+<div style="border: 1px solid #eee;">
+
+
+```ts {5-8|5|all}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+
+
+</div>
+</div>
 
 ---
 
