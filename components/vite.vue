@@ -4,7 +4,7 @@
       <div class="vite">
         <img @click="num++" src="/vite.svg" alt="vite"/>
         <p>
-          <span @click="num--">learn more at</span> 
+          <span @click="num--">learn more at </span> 
           <n-a href="https://cn.vitejs.dev/" target="_blank">https://cn.vitejs.dev</n-a>
         </p>
       </div>

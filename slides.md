@@ -240,19 +240,15 @@ li span{
 </div>
 
 ---
-layout: left-image
-image: '../assets/images/light-vue-landing.svg'
-equal: true
----
 
 # Composition Api 组合式Api
 
 什么是组合式Api? 在vue3中引入的一种新的编写Vue组件的方式。
 
 <div grid="~ cols-2 gap-4">
-<div style="border: 1px solid #eee;">
+<!-- <div style="border: 1px solid #eee;"> -->
 
-```ts {2-3|5|all}
+```ts {all|3,7,8,12,13,17|5|8-12|13-17|all}
 <script>
 export default {
   data() {
@@ -274,11 +270,56 @@ export default {
 </script>
 ```
 
+<!-- </div> -->
+<!-- <div style="border: 1px solid #eee;"> -->
+
+
+```ts {all|4,15|5|all}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+<!-- </div> -->
 </div>
-<div style="border: 1px solid #eee;">
 
+---
 
-```ts {5-8|5|all}
+```ts {all|3,7,8,12,13,17|5|8-12|13-17|all}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+
 <script>
 import { ref, computed } from 'vue'
 export default {
@@ -299,9 +340,44 @@ export default {
 ```
 
 
+---
 
-</div>
-</div>
+
+# Code
+
+Use code snippets and get the highlighting directly!
+
+```ts {all|2|1-6|9|all}
+interface User {
+  id: number
+  firstName: string
+  lastName: string
+  role: string
+}
+
+function updateUser(id: number, update: User) {
+  const user = getUser(id)
+  const newUser = {...user, ...update}
+  saveUser(id, newUser)
+}
+```
+
+```ts {all|2|1-6|9|all}
+interface User {
+  id: number
+  firstName: string
+  lastName: string
+  role: string
+}
+
+function updateUser(id: number, update: User) {
+  const user = getUser(id)
+  const newUser = {...user, ...update}
+  saveUser(id, newUser)
+}
+```
+
+<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
 
 ---
 
