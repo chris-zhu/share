@@ -8,20 +8,23 @@ highlighter: shiki
 title: Welcome to the sharing session of Chris
 ---
 
-# 拥抱
+# 拥抱Vue3
 
 探索前端新的开发体验改善
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 p-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
+<!-- <div class="uppercase text-sm tracking-widest">
+Chris-zhu
+</div> -->
+
+<div class="abs-bl mx-14 my-12 flex">
+  <img src="https://2020.vueday.it/img/themes/vueday/vueday-logo.png" class="h-8">
+  <div class="ml-3 flex flex-col text-left">
+    <div class="uppercase"><b>chris</b>zhu</div>
+    <div class="text-sm opacity-50">Jul. 3th, 2021</div>
+  </div>
 </div>
 
-<div v-click>Hello</div>
-<div v-after>World</div>
-
-<div v-click-hide>Hello1</div>
+<img src="http://blog.chrisying.cn/avatar.jpg" class="rounded-full w-40 abs-tr mt-16 mr-12"/>
 
 ---
 
@@ -61,25 +64,7 @@ title: Welcome to the sharing session of Chris
 
 ---
 
-# devtools 插件
-
-<div @click="$slidev.nav.next">
-  <img src="/devtools001.png"/>
-</div>
-
-<p style="text-align:center">devtools 更好的性能表现</p>
-
-<style>
-h1 {
-  background-color: #000;
-  /* background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%); */
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
-</style>
+<devtools />
 
 ---
 
@@ -237,7 +222,7 @@ li span{
 
 ---
 
-# Composition Api 组合式Api
+# Composition Api (组合式Api)
 
 <p @click="next">什么是组合式Api? 在vue3中引入的一种新的编写Vue组件的方式。</p>
 
@@ -541,9 +526,6 @@ export default {
 
 ---
 
-# 为什么要引入组合式Api
-
-
 <whyCompostion v-click="1"/>
 
 <div v-click="2" grid="~ cols-2 gap-4">
@@ -610,7 +592,7 @@ export function useDark(options: UseDarkOptions = {}) {
 
 ---
 
-# Code
+# 响应式原理
 
 Use code snippets and get the highlighting directly!
 
