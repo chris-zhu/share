@@ -18,14 +18,10 @@ title: Welcome to the sharing session of Chris
   </span>
 </div>
 
-<!-- <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-  class="abs-br m-6 text-xl icon-btn opacity-50 !border-none !hover:text-white">
-  <carbon-logo-github />
-</a> -- >
+<div v-click>Hello</div>
+<div v-after>World</div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)asd
--->
+<div v-click-hide>Hello1</div>
 
 ---
 
@@ -243,12 +239,70 @@ li span{
 
 # Composition Api 组合式Api
 
-什么是组合式Api? 在vue3中引入的一种新的编写Vue组件的方式。
+<p @click="next">什么是组合式Api? 在vue3中引入的一种新的编写Vue组件的方式。</p>
 
-<div grid="~ cols-2 gap-4">
-<!-- <div style="border: 1px solid #eee;"> -->
+<script setup lang="ts">
+import {ref} from 'vue'
+const step = ref(0)
+const next = ()=>{
+  if(step.value >= 5) return
+  step.value += 1
+}
+</script>
 
-```ts {all|3,7,8,12,13,17|5|8-12|13-17|all}
+
+<!-- step == 0 -->
+<div v-if="step==0" grid="~ cols-2 gap-4">
+
+```ts {all}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</>
+```
+
+
+```ts {all}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+</div>
+
+<!-- step == 1 -->
+<div v-if="step==1" grid="~ cols-2 gap-4">
+
+```ts {3,7,8,12,13,17}
 <script>
 export default {
   data() {
@@ -270,11 +324,8 @@ export default {
 </script>
 ```
 
-<!-- </div> -->
-<!-- <div style="border: 1px solid #eee;"> -->
 
-
-```ts {all|4,15|5|all}
+```ts {4,15}
 <script>
 import { ref, computed } from 'vue'
 export default {
@@ -294,116 +345,268 @@ export default {
 </script>
 ```
 
-<!-- </div> -->
+</div>
+
+<!-- step == 2 -->
+<div v-if="step==2" grid="~ cols-2 gap-4">
+
+```ts {4-6}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+```
+
+
+```ts {5,9}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+</div>
+
+<!-- step == 3 -->
+<div v-if="step==3" grid="~ cols-2 gap-4">
+
+```ts {8-12}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+```
+
+
+```ts {6,10}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+</div>
+
+<!-- step == 4 -->
+<div v-if="step==4" grid="~ cols-2 gap-4">
+
+```ts {13-17}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+```
+
+
+```ts {11-13}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
+</div>
+
+<!-- step == 5 -->
+<div @click="$slidev.nav.next" v-if="step==5" grid="~ cols-2 gap-4">
+
+```ts {all}
+<script>
+export default {
+  data() {
+    return {
+      dark: false
+    }
+  },
+  computed: {
+    light(){
+      return !this.dark
+    }
+  },
+  methods: {
+    toggle() {
+      this.dark = !this.dark
+    }
+  }
+}
+</script>
+```
+
+
+```ts {all}
+<script>
+import { ref, computed } from 'vue'
+export default {
+  setup () {
+    const dark = ref(false)
+    const light = computed(() => !dark.value)
+
+    return {
+      dark,
+      light,
+      toggle() {
+        dark.value = !dark.value
+      }
+    }
+  }
+}
+</script>
+```
+
 </div>
 
 ---
 
-```ts {all|3,7,8,12,13,17|5|8-12|13-17|all}
-<script>
-export default {
-  data() {
-    return {
-      dark: false
-    }
-  },
-  computed: {
-    light(){
-      return !this.dark
-    }
-  },
-  methods: {
-    toggle() {
-      this.dark = !this.dark
-    }
-  }
-}
-</script>
+# 为什么要引入组合式Api
 
-<script>
-import { ref, computed } from 'vue'
-export default {
-  setup () {
-    const dark = ref(false)
-    const light = computed(() => !dark.value)
 
-    return {
-      dark,
-      light,
-      toggle() {
-        dark.value = !dark.value
-      }
-    }
-  }
-}
-</script>
-```
+<whyCompostion v-click="1"/>
 
+<div v-click="2" grid="~ cols-2 gap-4">
+  
+<div>
+
+对象式API存在的问题
+
+<ul>
+  <li v-click="3">不利于复用</li>
+  <li v-click="4">潜在的命名冲突</li>
+  <li v-click="5">上下文丢失</li>
+  <li v-click="6">有限的类型支持</li>
+  <li v-click="7">按API类型组织</li>
+</ul>
+
+</div>
+
+<div>
+
+组合式API提供的能力
+
+<ul>
+  <li v-click="3">极易复用（原生JS函数）</li>
+  <li v-click="4">可灵活组合（生命周期钩子可多次使用）</li>
+  <li v-click="5">提供更好的上下文支持</li>
+  <li v-click="6">更好Typescript类型支持</li>
+  <li v-click="7">按功能/逻辑组织</li>
+  <li v-click="8">可独立与Vue组件使用</li>
+</ul>
+
+</div>
+
+</div>
 
 ---
 
+# 什么是组合式函数呢？
 
-# Code
+我认为它更像是可重用逻辑的集合，使代码更好地组织并分离关注点。
 
-Use code snippets and get the highlighting directly!
+<dark />
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
+```ts {all|2-3|5-15|all}
+export function useDark(options: UseDarkOptions = {}) {
+  const preferredDark = usePreferredDark()         // <--
+  const store = useStorage('vueuse-dark', 'auto')  // <--
 
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}
-  saveUser(id, newUser)
-}
-```
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}
-  saveUser(id, newUser)
+  return computed<boolean>({
+    get() {
+      return store.value === 'auto'
+        ? preferredDark.value
+        : store.value === 'dark'
+    },
+    set(v) {
+      store.value = v === preferredDark.value 
+        ? 'auto' : v ? 'dark' : 'light'
+    },
+  })
 }
 ```
 
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
 
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|                                     |                             |
-| ----------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd> | next animation or slide     |
-| <kbd>left</kbd>                     | previous animation or slide |
-| <kbd>up</kbd>                       | previous slide              |
-| <kbd>down</kbd>                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-<h1>123</h1>
 
 ---
 
@@ -451,7 +654,7 @@ We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that
 Check out [the guides](https://sli.dev/builtin/components.html) for more.
 
   </div>
-  <div>
+  <div>`  
 
 ```html
 <Tweet id="1390115482657726468" />

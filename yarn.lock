@@ -571,6 +571,14 @@
     "@vueuse/shared" "5.0.1"
     vue-demi "*"
 
+"@vueuse/core@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.nlark.com/@vueuse/core/download/@vueuse/core-5.0.3.tgz#8f3170e2a51ae62fb1725c84d4cc02a7552aad0b"
+  integrity sha1-jzFw4qUa5i+xclyE1MwCp1UqrQs=
+  dependencies:
+    "@vueuse/shared" "5.0.3"
+    vue-demi "*"
+
 "@vueuse/head@^0.5.1":
   version "0.5.1"
   resolved "https://registry.nlark.com/@vueuse/head/download/@vueuse/head-0.5.1.tgz#7d8a31ba4d214fff75c1d0845148d7f0bdf5b68f"
@@ -601,6 +609,13 @@
   version "5.0.1"
   resolved "https://registry.nlark.com/@vueuse/shared/download/@vueuse/shared-5.0.1.tgz#3b6607ffc9e19b322c39be8a2f6b584d203a7c5e"
   integrity sha1-O2YH/8nhmzIsOb6KL2tYTSA6fF4=
+  dependencies:
+    vue-demi "*"
+
+"@vueuse/shared@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.nlark.com/@vueuse/shared/download/@vueuse/shared-5.0.3.tgz#31613951d5036459650ad8d47a9185e8950ea3c9"
+  integrity sha1-MWE5UdUDZFllCtjUepGF6JUOo8k=
   dependencies:
     vue-demi "*"
 

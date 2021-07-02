@@ -9,6 +9,7 @@
     "@slidev/cli": "^0.19.8",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
+    "@vueuse/core": "^5.0.3",
     "slidev-theme-light-icons": "^1.0.2"
   },
   "name": "test",
