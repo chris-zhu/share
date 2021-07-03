@@ -193,7 +193,7 @@ li span{
 
 ---
 
-# Vite
+# Vite 新一代构建工具
 
 <vite />
 
@@ -641,9 +641,12 @@ learn at [https://sfc.vuejs.org/](https://sfc.vuejs.org/)
 
 
 ---
+layout: center
+class: text-center
+---
 
 # 展望未来
 
 Vue未来生态
 
-`Vue3` + `Composition Api` + `Typescript` + `Volar`
+`Vite` + `Vue3` + `Composition Api` + `Typescript` + `Volar`
